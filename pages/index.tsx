@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       <div className="Home__page">
         <div className="Home__contents">
           {/* カウント */}
-          <div className="Home__block">
+          <div className="Home__block mb-12">
             <Button variant="contained" onClick={toggle}>
               {open ? 'open' : 'close'}
             </Button>
@@ -34,15 +34,21 @@ const Home: NextPage = () => {
               <p>カウント数 {count} です！</p>
               <Button
                 variant="contained"
+                className="mr-8"
                 onClick={() => setCount((prevState) => prevState + 1)}
               >
                 + 1
               </Button>
-              <Button variant="contained" onClick={() => setCount(count - 1)}>
+              <Button
+                variant="contained"
+                className="mr-8"
+                onClick={() => setCount(count - 1)}
+              >
                 - 1
               </Button>
               <Button
                 variant="contained"
+                className="mr-8"
                 onClick={() => setCount(initialState)}
               >
                 初期値に戻す
@@ -56,6 +62,7 @@ const Home: NextPage = () => {
               <TextField
                 placeholder="姓"
                 value={name.lastName}
+                className="mr-10"
                 onChange={(e) => {
                   setName({ ...name, lastName: e.target.value });
                 }}

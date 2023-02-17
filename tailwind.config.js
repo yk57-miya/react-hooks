@@ -20,7 +20,6 @@ const colorClass = {
   'gray-darken': COLOR.GRAY_DARKEN,
   transparent: 'transparent'
 };
-
 module.exports = {
   mode: 'jit',
   future: {

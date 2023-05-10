@@ -1,11 +1,6 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 
-type Props = {
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  value: string;
-};
-
 // TODO: 型指定
 const calculateWinner = (squares: any[]) => {
   const lines = [

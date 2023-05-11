@@ -1,8 +1,7 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 
-// TODO: 型指定
-const calculateWinner = (squares: any[]) => {
+const calculateWinner = (squares: string[]) => {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],

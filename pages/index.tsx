@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import type { NextPage } from 'next';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import type { NextPage } from 'next';
+import { useEffect, useState } from 'react';
 
 const Home: NextPage = () => {
   const initialState = 0;
@@ -14,6 +11,8 @@ const Home: NextPage = () => {
     lastName: '',
     firstName: ''
   });
+  const [likes, setLikes] = useState(0);
+
   const toggle = () => setOpen(!open);
 
   // タイトルが書き変わる
@@ -75,6 +74,16 @@ const Home: NextPage = () => {
                 }}
               />
             </form>
+          </div>
+          {/* いいねボタン */}
+          <div>
+            <Button
+              variant="contained"
+              className="mt-10"
+              onClick={() => setLikes(likes + 1)}
+            >
+              Likes ♡{likes}
+            </Button>
           </div>
         </div>
       </div>

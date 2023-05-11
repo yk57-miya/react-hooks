@@ -50,6 +50,7 @@ button,
   }
 }
 
+/* TODO: 下記globalsのcssに書くことではないので移動する */
 /* Home */
 .Home__contents {
   width: 100%;
@@ -64,7 +65,7 @@ button,
 }
 .game .board-row:after {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 .game .status {

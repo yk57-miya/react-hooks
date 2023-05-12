@@ -8,7 +8,8 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 interface Props {
   data: {
     id: number;
-    text: string;
+    name: string;
+    content: string;
   };
 }
 
@@ -49,7 +50,10 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 const TestId = ({ data }: Props) => {
   return (
     <>
-      <div>{data.text}</div>
+      <div className="p-8">
+        <div className="text-xl font-bold">{data.name}</div>
+        <div className="mt-8 text-lg">{data.content}</div>
+      </div>
     </>
   );
 };

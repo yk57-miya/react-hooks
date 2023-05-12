@@ -1,6 +1,7 @@
 export type Data = {
   id: number;
-  text: string;
+  name: string;
+  content: string;
 };
 
 export type ProfileType = {

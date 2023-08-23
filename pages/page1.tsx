@@ -1,13 +1,14 @@
-import React, { useReducer } from 'react';
-import type { NextPage } from 'next';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import { log } from 'console';
+import type { NextPage } from 'next';
+import { useReducer } from 'react';
 
 const initialState = 0;
+
+type CardType = {
+  src: string;
+  title: string;
+  description: string;
+};
 
 const reducerFunc = (countState: number, action: string) => {
   switch (action) {
@@ -24,6 +25,27 @@ const reducerFunc = (countState: number, action: string) => {
 
 const Page1: NextPage = () => {
   const [count, dispatch] = useReducer(reducerFunc, initialState);
+
+  const cardData: CardType[] = [
+    {
+      src: '/images/cute_cat_01.jpg',
+      title: '白のもふもふちゃん',
+      description:
+        'テーブルに乗っちゃう白のもふもふな子猫ちゃん。何度怒ってもおりないためここは彼のベットになりました。'
+    },
+    {
+      src: '/images/cute_cat_02.jpg',
+      title: '上目遣い上手な子',
+      description: '狭いところが大好き。覗き込んだらこのお顔！'
+    }
+  ];
+  const Card = ({ item }: { item: CardType }) => (
+    <div className="w-full">
+      <img src={item.src} alt="" className="inline-block mb-2" />
+      <p className="text-lg font-bold mb-4">{item.title}</p>
+      <div className="text-black-lighten">{item.description}</div>
+    </div>
+  );
   return (
     <>
       <div className="Home__page">
@@ -56,6 +78,53 @@ const Page1: NextPage = () => {
             </div>
           </div>
         </div>
+
+        <div className="hidden md:flex max-w-5xl mx-auto gap-10">
+          {cardData.map((card) => (
+            <div key={card.title}>
+              <Card item={card} />
+            </div>
+          ))}
+          {/* <div className="w-full">
+            <img
+              src="/images/cute_cat_01.jpg"
+              alt=""
+              className="inline-block mb-2"
+            />
+            <p className="text-lg font-bold mb-4">白のもふもふちゃん</p>
+            <div className="text-black-lighten">
+              テーブルに乗っちゃう白のもふもふな子猫ちゃん。何度怒ってもおりないためここは彼のベットになりました。
+            </div>
+          </div>
+          <div className="w-full">
+            <img
+              src="/images/cute_cat_02.jpg"
+              alt=""
+              className="inline-block mb-2"
+            />
+            <p className="text-lg font-bold mb-4">上目遣い上手な子</p>
+            <div className="text-black-lighten">
+              狭いところが大好き。覗き込んだらこのお顔！
+            </div>
+          </div> */}
+        </div>
+
+        {/* <div className="Card__area">
+          <div className="Card__block">
+            <img src="/images/cute_cat_01.jpg" alt="" className="Card__img" />
+            <p className="Card__title">白のもふもふちゃん</p>
+            <div className="Card__description">
+              テーブルに乗っちゃう白のもふもふな子猫ちゃん。何度怒ってもここは彼のベットになりました。
+            </div>
+          </div>
+          <div className="Card__block">
+            <img src="/images/cute_cat_02.jpg" alt="" className="Card__img" />
+            <p className="Card__title">上目遣い上手な子</p>
+            <div className="Card__description">
+              狭いところが大好き。覗き込んだらこのお顔！
+            </div>
+          </div>
+        </div> */}
       </div>
     </>
   );

@@ -94,3 +94,26 @@ button,
 .game .game-info {
   margin-left: 20px;
 }
+
+/* TODO:: そのうち削除する予定 */
+.Card__area {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  gap: 25px;
+}
+.Card__block {
+  width: 100%;
+}
+.Card__img {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.Card__title {
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+.Card__description {
+  color: #707070;
+}

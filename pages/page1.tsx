@@ -39,6 +39,8 @@ const Page1: NextPage = () => {
       description: '狭いところが大好き。覗き込んだらこのお顔！'
     }
   ];
+
+  // コンポーネント化
   const Card = ({ item }: { item: CardType }) => (
     <div className="w-full">
       <img src={item.src} alt="" className="inline-block mb-2" />
@@ -85,6 +87,7 @@ const Page1: NextPage = () => {
               <Card item={card} />
             </div>
           ))}
+
           {/* <div className="w-full">
             <img
               src="/images/cute_cat_01.jpg"
@@ -107,6 +110,36 @@ const Page1: NextPage = () => {
               狭いところが大好き。覗き込んだらこのお顔！
             </div>
           </div> */}
+        </div>
+
+        <div className="flex justify-center items-center flex-wrap gap-10 max-w-5xl mx-auto ">
+          <div className="w-full">
+            <img
+              src="/images/cute_cat_01.jpg"
+              alt=""
+              className="inline-block mb-2"
+            />
+            <p className="text-lg font-bold mb-4">タイトル</p>
+            <div className="text-black-lighten">詳細詳細詳細詳細詳細詳細</div>
+          </div>
+          <div className="w-full">
+            <img
+              src="/images/cute_cat_01.jpg"
+              alt=""
+              className="inline-block mb-2"
+            />
+            <p className="text-lg font-bold mb-4">タイトル</p>
+            <div className="text-black-lighten">詳細詳細詳細詳細詳細詳細</div>
+          </div>
+          <div className="w-full">
+            <img
+              src="/images/cute_cat_01.jpg"
+              alt=""
+              className="inline-block mb-2"
+            />
+            <p className="text-lg font-bold mb-4">タイトル</p>
+            <div className="text-black-lighten">詳細詳細詳細詳細詳細詳細</div>
+          </div>
         </div>
 
         {/* <div className="Card__area">

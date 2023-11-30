@@ -60,6 +60,34 @@ const multiple3and5 = () => {
 };
 multiple3and5();
 
+// 文字列圧縮
+const consecutiveString = (str: string) => {
+  const strArray = [...str];
+  let submitString = '';
+  let count = 1;
+  // 配列に入れなくてもできるよ
+  for (let i = 0; i < strArray.length; i++) {
+    if (strArray[i] === strArray[i + 1]) {
+      count += 1;
+    } else {
+      submitString = `${submitString + strArray[i] + count}`;
+      count = 1;
+    }
+  }
+  return submitString;
+};
+
+// 閏年判定
+const leapYear = (year: number) => {
+  if (year % 4 === 0 && year % 100 !== 0) {
+    return true;
+  } else if (year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 const Page1: NextPage = () => {
   const [count, dispatch] = useReducer(reducerFunc, initialState);
 
@@ -120,6 +148,14 @@ const Page1: NextPage = () => {
 
         <div className="max-w-5xl my-40 mx-auto gap-10">
           {IsPrimeNumber(4) ? '素数です' : '素数ではありません'}
+        </div>
+
+        <div className="max-w-5xl my-40 mx-auto gap-10">
+          {consecutiveString('aaabbcccd')}
+        </div>
+
+        <div className="max-w-5xl my-40 mx-auto gap-10">
+          {leapYear(400) ? 'true' : 'false'}
         </div>
 
         <div className="hidden md:flex max-w-5xl mx-auto gap-10">

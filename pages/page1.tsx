@@ -88,6 +88,54 @@ const leapYear = (year: number) => {
   }
 };
 
+// 問題:
+// 配列内の重複した要素を削除する関数 `removeDuplicates` を作成してください。
+// この関数は、整数の配列を引数として受け取り、重複した要素を削除した新しい配列を返す必要があります。
+
+// 例:
+// 入力: [1, 2, 2, 3, 4, 4, 5]
+// 出力: [1, 2, 3, 4, 5]
+// 以下にコードを書いてください。
+const removeDuplicates = (array: number[]) => {
+  const newArray: number[] = [];
+  array.forEach((number, idx) => {
+    if (number === array[idx - 1]) {
+      return;
+    } else {
+      newArray.push(number);
+    }
+  });
+  return newArray;
+};
+
+// おしゃれな書き方(1行で！)input大事！
+function _removeDuplicates(array: number[]) {
+  return [...new Set(array)];
+}
+
+// 問題:
+// 配列内の最大値を見つける関数 `findMax` を作成してください。
+// この関数は、整数の配列を引数として受け取り、配列内の最大値を返す必要があります。
+
+// 例:
+// 入力: [1, 2, 3, 4, 5]
+// 出力: 5
+// 以下にコードを書いてください。
+const findMax = (array: number[]) => {
+  let newArray = [];
+  newArray = array.sort((a, b) => {
+    if (a > b) return -1;
+    else if (b > a) return 1;
+    else return 0;
+  });
+  return newArray[0];
+};
+
+// おしゃれな書き方(1行で！)input大事！
+function _findMax(array: number[]) {
+  return Math.max(...array);
+}
+
 const Page1: NextPage = () => {
   const [count, dispatch] = useReducer(reducerFunc, initialState);
 
@@ -156,6 +204,18 @@ const Page1: NextPage = () => {
 
         <div className="max-w-5xl my-40 mx-auto gap-10">
           {leapYear(400) ? 'true' : 'false'}
+        </div>
+
+        <div className="max-w-5xl my-40 mx-auto gap-10">
+          {removeDuplicates([1, 2, 2, 3, 4, 4, 5])}
+        </div>
+
+        <div className="max-w-5xl my-40 mx-auto gap-10">
+          {findMax([1, 2, 3, 4, 5])}
+        </div>
+
+        <div className="max-w-5xl my-40 mx-auto gap-10">
+          {_findMax([1, 2, 3, 4, 5])}
         </div>
 
         <div className="hidden md:flex max-w-5xl mx-auto gap-10">
